@@ -1,15 +1,14 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
+//////////////////////////////////////////////////////////////////////////////////////////////
+//                        AUTONOMOUS AGENTS: STAYING WITHIN WALLS
+//////////////////////////////////////////////////////////////////////////////////////////////
+// The Nature of Code (Daniel Shiffman) http://natureofcode.com
 
 // Stay Within Walls
 // "Made-up" Steering behavior to stay within walls
 
 let v;
-
 let debug = true;
-
-let d = 25;
+let d = 100;
 
 function setup() {
   createCanvas(640, 360);
@@ -26,9 +25,7 @@ function draw() {
     rect(width / 2, height / 2, width - d * 2, height - d * 2);
   }
 
-  // Call the appropriate steering behaviors for our agents
-  v.boundaries();
-
+  v.checkBoundaries(d); // Call the appropriate steering behaviors for our agents
   v.update();
   v.display();
 

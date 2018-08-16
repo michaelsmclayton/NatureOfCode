@@ -1,9 +1,9 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
+//////////////////////////////////////////////////////////////////////////////////////////////
+//                      AUTONOMOUS AGENTS: FLOW FIELDS (VEHICLE CLASS)
+//////////////////////////////////////////////////////////////////////////////////////////////
+// The Nature of Code (Daniel Shiffman) http://natureofcode.com
 
 // The "Vehicle" class
-
 class Vehicle {
   constructor(x, y, ms, mf) {
     this.position = createVector(x, y);
@@ -20,13 +20,18 @@ class Vehicle {
     this.display();
   }
 
+
+  //////////////////////////////////////////////////////
   // Implementing Reynolds' flow field following algorithm
-  // http://www.red3d.com/cwr/steer/FlowFollow.html
+  // (http://www.red3d.com/cwr/steer/FlowFollow.html)
+  //////////////////////////////////////////////////////
   follow(flow) {
     // What is the vector at that spot in the flow field?
     let desired = flow.lookup(this.position);
+    
     // Scale it up by maxspeed
     desired.mult(this.maxspeed);
+    
     // Steering is desired minus velocity
     let steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxforce); // Limit to maximum steering force
@@ -34,7 +39,6 @@ class Vehicle {
   }
 
   applyForce(force) {
-    // We could add mass here if we want A = F / M
     this.acceleration.add(force);
   }
 

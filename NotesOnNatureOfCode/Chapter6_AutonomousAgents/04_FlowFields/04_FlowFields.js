@@ -1,23 +1,17 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
+//////////////////////////////////////////////////////////////////////////////////////////////
+//                            AUTONOMOUS AGENTS: FLOW FIELDS
+//////////////////////////////////////////////////////////////////////////////////////////////
+// The Nature of Code (Daniel Shiffman) http://natureofcode.com
 
 // Flow Field Following
 // Via Reynolds: http://www.red3d.com/cwr/steer/FlowFollow.html
 
-// Using this variable to decide whether to draw all the stuff
-let debug = true;
 
-// Flowfield object
-let flowfield;
-// An ArrayList of vehicles
-let vehicles = [];
+let debug = true; // Using this variable to decide whether to draw all the stuff
+let flowfield; // Flowfield object
+let vehicles = []; // An ArrayList of vehicles
 
 function setup() {
-
-  let text = createP("Hit space bar to toggle debugging lines.<br>Click the mouse to generate a new flow field.");
-  text.position(10, 365);
-
   createCanvas(640, 360);
   // Make a new flow field with "resolution" of 16
   flowfield = new FlowField(20);
@@ -39,7 +33,6 @@ function draw() {
 
 }
 
-
 function keyPressed() {
   if (key == ' ') {
     debug = !debug;
@@ -48,5 +41,5 @@ function keyPressed() {
 
 // Make a new flowfield
 function mousePressed() {
-  flowfield.init();
+  flowfield.makeNewFlowField();
 }
