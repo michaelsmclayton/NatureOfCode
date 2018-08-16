@@ -3,8 +3,54 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 // The Nature of Code (Daniel Shiffman) http://natureofcode.com
 
-/*
-    
+///////////////////////////////////////////
+/* WHAT IS TOXICLIBS?
+///////////////////////////////////////////
+
+    Toxiclibs is another powerful physics engine. In the following sections, we are going focus
+  on a few examples related to Verlet physics. However, Toxiclibs includes a suite of other
+  wonderful packages that help with audio, color, geometry, and more.
+
+    One great feature of Toxiclibs is that it was designed specifically for use with Processing (
+  and therefore P5). The trouble we had with making Box2D work in P5  is not an issue here. The
+  COORDINATE SYSTEM that we’ll use for the physics engine is the same as the coordinate system of
+  P5, which means that we don't have to constantly translate back and forth. In addition, Toxiclibs
+  is not limited to a 2D world; all of the physics simulations and functions work in both two and
+  THREE DIMENSIONS.
+
+      So how do you decide which library you should use? Box2D or Toxiclibs?
+
+  • Imagine that your project involves lots of collisions. You have circles, squares, and other
+  strangely shaped objects that knock each other around and bounce off each other. In this case,
+  you are going to need BOX2D, as Toxiclibs does not handle collisions.
+
+  • However, imagine that your project involves lots of particles flying around the screen. Sometimes
+  they attract each other. Sometimes they repel each other. And sometimes they are connected with
+  springs. In this case, TOXICLIBS is likely your best choice, as it is simpler to use than Box2D and
+  particularly well suited to connected systems of particles. Toxiclibs is also very high performance,
+  due to the speed of the Verlet integration algorithm (see 'NotesOnIntegrationMethods.js'; not to
+  mention the fact that the program gets to ignore all of the collision geometry).
+
+  The table below covers some of the features of Toxiclibs, in comparison to Box2D:
+
+   ---------------------------- ------------- --------------
+  |           FEATURE          |    BOX2D    |   TOXICLIBS  |
+   ---------------------------- ------------- --------------
+        Collision Geometry           YES            NO
+
+            3D physics               NO             YES
+
+        Particle attraction/         NO             YES
+          repulsion forces
+
+        Spring connections          YES             YES
+
+   Other connections: revolute,     YES             NO
+    pulley, gear, prismatic
+
+              Motors                YES             NO
+
+             Friction               YES             NO
 */
 
 let physics; // Reference to physics world

@@ -12,7 +12,6 @@ var Engine = Matter.Engine,
 var engine;
 var world;
 var boxes = [];
-
 var ground;
 
 function setup() {
@@ -47,5 +46,4 @@ function draw() {
   fill(170);
   rectMode(CENTER);
   rect(ground.position.x, ground.position.y, width, 100);
-
 }
